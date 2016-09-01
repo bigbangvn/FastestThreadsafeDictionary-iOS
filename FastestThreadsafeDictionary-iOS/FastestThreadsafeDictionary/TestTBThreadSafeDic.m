@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FastestThreadSafeDictionary.h"
+#import "PMutexThreadSafeDictionary.h"
 
 void readWriteOnMultiThread(NSMutableDictionary* dic)
 {
@@ -57,5 +58,11 @@ void testUnsafeDic()
 void testThreadSafeDic()
 {
     FastestThreadSafeDictionary* dic = [FastestThreadSafeDictionary new];
+    readWriteOnMultiThread(dic);
+}
+
+void testPMutexDic()
+{
+    PMutexThreadSafeDictionary* dic = [PMutexThreadSafeDictionary new];
     readWriteOnMultiThread(dic);
 }

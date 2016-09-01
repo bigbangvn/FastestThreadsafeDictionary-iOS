@@ -9,6 +9,7 @@
 #import "ViewController.h"
 void testUnsafeDic();
 void testThreadSafeDic();
+void testPMutexDic();
 
 @interface ViewController ()
 
@@ -20,7 +21,7 @@ void testThreadSafeDic();
     [super viewDidLoad];
     
     
-    NSLog(@"START TEST THREADSAFE DICTIONARY");
+    NSLog(@"START TEST THREADSAFE DICTIONARY 1");
     
     double endTime;
     double startTime = CACurrentMediaTime();
@@ -33,6 +34,16 @@ void testThreadSafeDic();
     endTime = CACurrentMediaTime();
     NSLog(@"Finish: %f", endTime - startTime);
     startTime = endTime;
+    
+    NSLog(@"START TEST THREADSAFE DICTIONARY 2");
+    for(int i=0;i<5;++i)
+    {
+        testPMutexDic();
+    }
+    endTime = CACurrentMediaTime();
+    NSLog(@"Finish: %f", endTime - startTime);
+    startTime = endTime;
+    
     
     NSLog(@"START TEST UNSAFE DICTIONARY. IT MY CRASH, YOU KNOW");
     
