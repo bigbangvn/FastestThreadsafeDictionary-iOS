@@ -12,6 +12,11 @@ In a test in sample project: read and write in multiple thread use GCD:
 + PMutexThreadsafeDictionary: 15.x seconds
 + FastestThreadsafeDictionary: 8.x seconds. So it's 2x faster than using pthread mutex
 
+Note that both of them have their pros and cons:
++ Use atomic operation when you plan to hold the lock for extremely short interval, contention is rare (For example lazy: initialization)
++ Pthread: The advantege is waiting thread does not take any CPU time. This requires intervention by the OS to stop the thread, and start it again when unlocking. But this OS intervention comes with a certain amount of overhead. 
+
 Reference:
+
 https://www.mikeash.com/pyblog/friday-qa-2011-03-04-a-tour-of-osatomic.html
 http://www.alexonlinux.com/pthread-mutex-vs-pthread-spinlock
