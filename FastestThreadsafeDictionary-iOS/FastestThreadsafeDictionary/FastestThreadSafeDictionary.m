@@ -9,6 +9,11 @@
 #import <dispatch/dispatch.h>
 #import "FastestThreadSafeDictionary.h"
 
+
+#define ATOMIC_THREAD_SAFE(...) while(!OSAtomicCompareAndSwap32(0, 1, &_lockFlag));\
+                                __VAR_ARGS__;\
+                                OSAtomicCompareAndSwap32(1, 0, &_lockFlag);
+
 @interface FastestThreadSafeDictionary()
 {
     int32_t volatile _lockFlag;
@@ -85,6 +90,15 @@
     while(!OSAtomicCompareAndSwap32(0, 1, &_lockFlag));
     
     [self.dic setObject:anObject forKey:aKey];
+    
+    OSAtomicCompareAndSwap32Barrier(1, 0, &_lockFlag);
+}
+
+- (void)addEntriesFromDictionary:(NSDictionary*)otherDictionary
+{
+    while(!OSAtomicCompareAndSwap32(0, 1, &_lockFlag));
+    
+    [self.dic addEntriesFromDictionary:otherDictionary];
     
     OSAtomicCompareAndSwap32Barrier(1, 0, &_lockFlag);
 }

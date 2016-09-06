@@ -88,6 +88,15 @@
     pthread_mutex_unlock(&_mutex);
 }
 
+- (void)addEntriesFromDictionary:(NSDictionary*)otherDictionary
+{
+    pthread_mutex_lock(&_mutex);
+    
+    [self.dic addEntriesFromDictionary:otherDictionary];
+    
+    pthread_mutex_unlock(&_mutex);
+}
+
 - (void)removeObjectForKey:(id)aKey
 {
     pthread_mutex_lock(&_mutex);
