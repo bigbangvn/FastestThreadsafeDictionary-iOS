@@ -1,4 +1,5 @@
 # FastestThreadsafeDictionary-iOS
+# trongbangvp@gmail.com
 
 NSMutableDictionary of iOS is not threadsafe. So someone may encountered problem when use shared NSMutableDictinary with multiple thread.
 Me too so i want to make fast and threadsafe mutable dictionary. The idea is use OSAtomic and lockless read operation:
@@ -8,6 +9,6 @@ Me too so i want to make fast and threadsafe mutable dictionary. The idea is use
  But currently, i can't find OSAtomic operation on iOS that can do something like that: Compare a to value x then set b to value y. So there are no absolute safe solution for lockless read -> Currently i use lock for all read/write operation. But certainly it's still very fast.
 
 Comparision:
-In a test in sample project: read and write in multiple thread use GCD for iOS:
+In a test in sample project: read and write in multiple thread use GCD:
 + PMutexThreadsafeDictionary: 15.x seconds
 + FastestThreadsafeDictionary: 8.x seconds. So it's 2x faster than using pthread mutex
