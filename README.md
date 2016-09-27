@@ -19,3 +19,4 @@ Reference:
 
 https://www.mikeash.com/pyblog/friday-qa-2011-03-04-a-tour-of-osatomic.html
 http://www.alexonlinux.com/pthread-mutex-vs-pthread-spinlock
+https://github.com/ReactiveCocoa/ReactiveCocoa/issues/2619
