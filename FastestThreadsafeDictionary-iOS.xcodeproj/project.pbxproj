@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C040CBC01D9A7C48008FD52E /* SpinLockThreadSafeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C040CBBF1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.m */; };
 		C05523D71D7845CB00EACD3D /* PMutexThreadSafeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C05523D61D7845CB00EACD3D /* PMutexThreadSafeDictionary.m */; };
 		C0FF45411D78136A009D4C3B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF45401D78136A009D4C3B /* main.m */; };
 		C0FF45441D78136A009D4C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF45431D78136A009D4C3B /* AppDelegate.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C040CBBE1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinLockThreadSafeDictionary.h; sourceTree = "<group>"; };
+		C040CBBF1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinLockThreadSafeDictionary.m; sourceTree = "<group>"; };
 		C05523D51D7845CB00EACD3D /* PMutexThreadSafeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMutexThreadSafeDictionary.h; sourceTree = "<group>"; };
 		C05523D61D7845CB00EACD3D /* PMutexThreadSafeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMutexThreadSafeDictionary.m; sourceTree = "<group>"; };
 		C0FF453C1D78136A009D4C3B /* FastestThreadsafeDictionary-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FastestThreadsafeDictionary-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +98,8 @@
 				C05523D61D7845CB00EACD3D /* PMutexThreadSafeDictionary.m */,
 				C0FF45571D7813A4009D4C3B /* FastestThreadSafeDictionary.h */,
 				C0FF45581D7813A4009D4C3B /* FastestThreadSafeDictionary.m */,
+				C040CBBE1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.h */,
+				C040CBBF1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.m */,
 				C0FF45591D7813A4009D4C3B /* TestTBThreadSafeDic.m */,
 			);
 			path = FastestThreadsafeDictionary;
@@ -176,6 +181,7 @@
 				C0FF45411D78136A009D4C3B /* main.m in Sources */,
 				C0FF455A1D7813A4009D4C3B /* FastestThreadSafeDictionary.m in Sources */,
 				C05523D71D7845CB00EACD3D /* PMutexThreadSafeDictionary.m in Sources */,
+				C040CBC01D9A7C48008FD52E /* SpinLockThreadSafeDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -91,7 +91,7 @@
     
     [self.dic setObject:anObject forKey:aKey];
     
-    OSAtomicCompareAndSwap32Barrier(1, 0, &_lockFlag);
+    OSAtomicCompareAndSwap32(1, 0, &_lockFlag);
 }
 
 - (void)addEntriesFromDictionary:(NSDictionary*)otherDictionary
@@ -100,7 +100,7 @@
     
     [self.dic addEntriesFromDictionary:otherDictionary];
     
-    OSAtomicCompareAndSwap32Barrier(1, 0, &_lockFlag);
+    OSAtomicCompareAndSwap32(1, 0, &_lockFlag);
 }
 
 - (void)removeObjectForKey:(id)aKey
@@ -109,7 +109,7 @@
     
     [self.dic removeObjectForKey:aKey];
     
-    OSAtomicCompareAndSwap32Barrier(1, 0, &_lockFlag);
+    OSAtomicCompareAndSwap32(1, 0, &_lockFlag);
 }
 
 - (void)removeObjectsForKeys:(NSArray *)keyArray
@@ -118,7 +118,7 @@
     
     [self.dic removeObjectsForKeys:keyArray];
     
-    OSAtomicCompareAndSwap32Barrier(1, 0, &_lockFlag);
+    OSAtomicCompareAndSwap32(1, 0, &_lockFlag);
 }
 
 - (void)removeAllObjects
@@ -127,7 +127,7 @@
     
     [self.dic removeAllObjects];
     
-    OSAtomicCompareAndSwap32Barrier(1, 0, &_lockFlag);
+    OSAtomicCompareAndSwap32(1, 0, &_lockFlag);
 }
 
 @end

@@ -1,34 +1,32 @@
 //
-//  TBThreadSafeMutableDictionary.m
-//  TestLockless-iOS
+//  SpinLockThreadSafeDictionary.m
+//  FastestThreadsafeDictionary-iOS
 //
-//  Created by trongbangvp@gmail.com on 9/1/16.
+//  Created by trongbangvp@gmail.com on 9/27/16.
 //  Copyright © 2016 trongbangvp@gmail.com. All rights reserved.
 //
-#import <pthread/pthread.h>
-#import "PMutexThreadSafeDictionary.h"
 
-@interface PMutexThreadSafeDictionary()
+#import <libkern/OSAtomic.h>
+#import "SpinLockThreadSafeDictionary.h"
+@interface SpinLockThreadSafeDictionary()
 {
-    pthread_mutex_t _mutex;
+    OSSpinLock _spinLock;
 }
 @property(atomic, strong) NSMutableDictionary* dic;
 @end
 
-@implementation PMutexThreadSafeDictionary
-
+@implementation SpinLockThreadSafeDictionary
 -(id) init
 {
     if(self = [super init])
     {
-        pthread_mutex_init(&_mutex, NULL);
+        _spinLock = OS_SPINLOCK_INIT;
         _dic = [NSMutableDictionary new];
     }
     return self;
 }
 -(void)dealloc
 {
-    pthread_mutex_destroy(&_mutex);
 }
 
 #pragma mark - Read operation
@@ -36,97 +34,95 @@
 
 -(NSUInteger)count
 {
-    pthread_mutex_lock(&_mutex);
+    OSSpinLockLock(&_spinLock);
     
     NSUInteger n = self.dic.count;
     
-    pthread_mutex_unlock(&_mutex);
+    OSSpinLockUnlock(&_spinLock);
     return n;
 }
 
 -(id) objectForKey:(id)aKey
 {
-    pthread_mutex_lock(&_mutex);
+    OSSpinLockLock(&_spinLock);
     
     id val = [self.dic objectForKey:aKey];
     
-    pthread_mutex_unlock(&_mutex);
+    OSSpinLockUnlock(&_spinLock);
     return val;
 }
 
 - (NSEnumerator*)keyEnumerator
 {
-    pthread_mutex_lock(&_mutex);
+    OSSpinLockLock(&_spinLock);
     
     id val = [self.dic keyEnumerator];
     
-    pthread_mutex_unlock(&_mutex);
+    OSSpinLockUnlock(&_spinLock);
     return val;
 }
 - (NSArray*)allKeys
 {
-    pthread_mutex_lock(&_mutex);
+    OSSpinLockLock(&_spinLock);
     
     id val = [self.dic allKeys];
     
-    pthread_mutex_unlock(&_mutex);
+    OSSpinLockUnlock(&_spinLock);
     return val;
 }
 - (NSArray*)allValues
 {
-    pthread_mutex_lock(&_mutex);
+    OSSpinLockLock(&_spinLock);
     
     id val = [self.dic allValues];
     
-    pthread_mutex_unlock(&_mutex);
+    OSSpinLockUnlock(&_spinLock);
     return val;
 }
 
 #pragma mark - Write operation
 -(void) setObject:(id)anObject forKey:(id<NSCopying>)aKey
 {
-    pthread_mutex_lock(&_mutex);
+    OSSpinLockLock(&_spinLock);
     
     [self.dic setObject:anObject forKey:aKey];
     
-    pthread_mutex_unlock(&_mutex);
+    OSSpinLockUnlock(&_spinLock);
 }
 
 - (void)addEntriesFromDictionary:(NSDictionary*)otherDictionary
 {
-    pthread_mutex_lock(&_mutex);
+    OSSpinLockLock(&_spinLock);
     
     [self.dic addEntriesFromDictionary:otherDictionary];
     
-    pthread_mutex_unlock(&_mutex);
+    OSSpinLockUnlock(&_spinLock);
 }
 
 - (void)removeObjectForKey:(id)aKey
 {
-    pthread_mutex_lock(&_mutex);
+    OSSpinLockLock(&_spinLock);
     
     [self.dic removeObjectForKey:aKey];
     
-    pthread_mutex_unlock(&_mutex);
+    OSSpinLockUnlock(&_spinLock);
 }
 
 - (void)removeObjectsForKeys:(NSArray *)keyArray
 {
-    pthread_mutex_lock(&_mutex);
+    OSSpinLockLock(&_spinLock);
     
     [self.dic removeObjectsForKeys:keyArray];
     
-    pthread_mutex_unlock(&_mutex);
+    OSSpinLockUnlock(&_spinLock);
 }
 
 - (void)removeAllObjects
 {
-    pthread_mutex_lock(&_mutex);
+    OSSpinLockLock(&_spinLock);
     
     [self.dic removeAllObjects];
     
-    pthread_mutex_unlock(&_mutex);
+    OSSpinLockUnlock(&_spinLock);
 }
-
 @end
-

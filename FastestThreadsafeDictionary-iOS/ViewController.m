@@ -10,6 +10,7 @@
 void testUnsafeDic();
 void testThreadSafeDic();
 void testPMutexDic();
+void testSpinLockDic();
 
 @interface ViewController ()
 
@@ -21,7 +22,7 @@ void testPMutexDic();
     [super viewDidLoad];
     
     
-    NSLog(@"START TEST THREADSAFE DICTIONARY 1");
+    NSLog(@"START TEST THREADSAFE DICTIONARY WITH OSATIMIC CompareAndSwap");
     
     double endTime;
     double startTime = CACurrentMediaTime();
@@ -35,7 +36,7 @@ void testPMutexDic();
     NSLog(@"Finish: %f", endTime - startTime);
     startTime = endTime;
     
-    NSLog(@"START TEST THREADSAFE DICTIONARY 2");
+    NSLog(@"START TEST THREADSAFE DICTIONARY WITH MUTEX");
     for(int i=0;i<5;++i)
     {
         testPMutexDic();
@@ -44,6 +45,14 @@ void testPMutexDic();
     NSLog(@"Finish: %f", endTime - startTime);
     startTime = endTime;
     
+    NSLog(@"TEST THREADSAFE DIC WITH OSSPINLOCK");
+    for(int i=0;i<5;++i)
+    {
+        testSpinLockDic();
+    }
+    endTime = CACurrentMediaTime();
+    NSLog(@"Finish: %f", endTime - startTime);
+    startTime = endTime;
     
     NSLog(@"START TEST UNSAFE DICTIONARY. IT MY CRASH, YOU KNOW");
     
