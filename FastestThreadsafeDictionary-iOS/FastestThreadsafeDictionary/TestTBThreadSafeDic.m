@@ -30,7 +30,10 @@ void readWriteOnMultiThread(NSMutableDictionary* dic)
             int i = rand() % 2;
             if(i == 0)
             {
-                id val = [dic objectForKey:key];
+                //Test read use both [] and objectForKey
+                id val = dic[key];
+                val = [dic objectForKey:key];
+                
                 NSUInteger n = dic.count;
                 id arr = dic.allKeys;
                 arr = dic.allValues;
@@ -40,6 +43,11 @@ void readWriteOnMultiThread(NSMutableDictionary* dic)
             {
                 [dic removeAllObjects];
                 [dic removeObjectForKey:key];
+                
+                //Test write use [] and setObject
+                dic[key] = newVal;
+                dic[key1] = newVal;
+                dic[key2] = newVal;
                 [dic setObject:newVal forKey:key];
                 [dic setObject:newVal forKey:key1];
                 [dic setObject:newVal forKey:key2];
