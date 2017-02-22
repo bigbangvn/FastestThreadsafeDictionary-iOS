@@ -25,6 +25,18 @@
     }
     return self;
 }
+-(id)initWithDictionary:(NSDictionary *)otherDictionary
+{
+    if(self = [super init])
+    {
+        _spinLock = OS_SPINLOCK_INIT;
+        if(otherDictionary)
+            _dic = [otherDictionary mutableCopy];
+        else
+            _dic = [NSMutableDictionary new];
+    }
+    return self;
+}
 -(void)dealloc
 {
 }

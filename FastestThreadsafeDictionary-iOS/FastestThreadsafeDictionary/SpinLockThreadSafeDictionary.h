@@ -9,7 +9,7 @@
 //May has same perfomance as using OSAtomicCompareAndSwap32
 //But in my test it's slightly faster than use OSAtomicCompareAndSwap32 !!
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @interface SpinLockThreadSafeDictionary : NSMutableDictionary
 

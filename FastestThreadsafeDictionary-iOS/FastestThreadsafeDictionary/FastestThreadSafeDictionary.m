@@ -32,7 +32,18 @@
     }
     return self;
 }
-
+-(id)initWithDictionary:(NSDictionary *)otherDictionary
+{
+    if(self = [super init])
+    {
+        _lockFlag = 0;
+        if(otherDictionary)
+            _dic = [otherDictionary mutableCopy];
+        else
+            _dic = [NSMutableDictionary new];
+    }
+    return self;
+}
 #pragma mark - Read operation
 //Read operation is lockless, just checking lock-write
 

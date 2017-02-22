@@ -66,7 +66,7 @@ void testUnsafeDic()
 
 void testThreadSafeDic()
 {
-    FastestThreadSafeDictionary* dic = [FastestThreadSafeDictionary new];
+    FastestThreadSafeDictionary* dic = [[FastestThreadSafeDictionary alloc] initWithDictionary:[NSMutableDictionary new]];
     readWriteOnMultiThread(dic);
 }
 

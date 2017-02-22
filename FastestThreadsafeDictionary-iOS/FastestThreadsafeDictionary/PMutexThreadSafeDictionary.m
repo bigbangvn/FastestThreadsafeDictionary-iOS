@@ -26,6 +26,17 @@
     }
     return self;
 }
+-(id)initWithDictionary:(NSDictionary *)otherDictionary
+{
+    if(self = [super init])
+    {
+        if(otherDictionary)
+            _dic = [otherDictionary mutableCopy];
+        else
+            _dic = [NSMutableDictionary new];
+    }
+    return self;
+}
 -(void)dealloc
 {
     pthread_mutex_destroy(&_mutex);

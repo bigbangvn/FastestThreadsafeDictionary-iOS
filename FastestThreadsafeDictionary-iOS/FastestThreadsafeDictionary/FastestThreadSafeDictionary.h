@@ -16,7 +16,7 @@
  * At least 10x faster than TSMutableDictionary
  */
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @interface FastestThreadSafeDictionary : NSMutableDictionary
 
