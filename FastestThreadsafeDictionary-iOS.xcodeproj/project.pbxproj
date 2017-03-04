@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02740E11E6AEB3600B3FC84 /* ThreadsafeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C02740E01E6AEB3600B3FC84 /* ThreadsafeArray.m */; };
 		C040CBC01D9A7C48008FD52E /* SpinLockThreadSafeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C040CBBF1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.m */; };
 		C05523D71D7845CB00EACD3D /* PMutexThreadSafeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C05523D61D7845CB00EACD3D /* PMutexThreadSafeDictionary.m */; };
 		C0FF45411D78136A009D4C3B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF45401D78136A009D4C3B /* main.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C02740DF1E6AEB3600B3FC84 /* ThreadsafeArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadsafeArray.h; sourceTree = "<group>"; };
+		C02740E01E6AEB3600B3FC84 /* ThreadsafeArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadsafeArray.m; sourceTree = "<group>"; };
 		C040CBBE1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinLockThreadSafeDictionary.h; sourceTree = "<group>"; };
 		C040CBBF1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinLockThreadSafeDictionary.m; sourceTree = "<group>"; };
 		C05523D51D7845CB00EACD3D /* PMutexThreadSafeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMutexThreadSafeDictionary.h; sourceTree = "<group>"; };
@@ -50,9 +53,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C02740DE1E6AEB3600B3FC84 /* ThreadsafeArray */ = {
+			isa = PBXGroup;
+			children = (
+				C02740DF1E6AEB3600B3FC84 /* ThreadsafeArray.h */,
+				C02740E01E6AEB3600B3FC84 /* ThreadsafeArray.m */,
+			);
+			path = ThreadsafeArray;
+			sourceTree = "<group>";
+		};
 		C0FF45331D78136A009D4C3B = {
 			isa = PBXGroup;
 			children = (
+				C02740DE1E6AEB3600B3FC84 /* ThreadsafeArray */,
 				C0FF453E1D78136A009D4C3B /* FastestThreadsafeDictionary-iOS */,
 				C0FF453D1D78136A009D4C3B /* Products */,
 			);
@@ -136,6 +149,8 @@
 				TargetAttributes = {
 					C0FF453B1D78136A009D4C3B = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = CVB6BX97VM;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -177,6 +192,7 @@
 			files = (
 				C0FF45471D78136A009D4C3B /* ViewController.m in Sources */,
 				C0FF455B1D7813A4009D4C3B /* TestTBThreadSafeDic.m in Sources */,
+				C02740E11E6AEB3600B3FC84 /* ThreadsafeArray.m in Sources */,
 				C0FF45441D78136A009D4C3B /* AppDelegate.m in Sources */,
 				C0FF45411D78136A009D4C3B /* main.m in Sources */,
 				C0FF455A1D7813A4009D4C3B /* FastestThreadSafeDictionary.m in Sources */,
@@ -294,11 +310,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Truong Anh Tuan (CV6LH8ZB8L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CVB6BX97VM;
 				INFOPLIST_FILE = "FastestThreadsafeDictionary-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "bigbang.FastestThreadsafeDictionary-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "320ac2ab-56ac-4e93-b9f3-d93f606a174b";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -307,11 +326,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Truong Anh Tuan (CV6LH8ZB8L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CVB6BX97VM;
 				INFOPLIST_FILE = "FastestThreadsafeDictionary-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "bigbang.FastestThreadsafeDictionary-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "320ac2ab-56ac-4e93-b9f3-d93f606a174b";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
