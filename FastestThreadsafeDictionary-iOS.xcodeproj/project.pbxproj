@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C02740E11E6AEB3600B3FC84 /* ThreadsafeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C02740E01E6AEB3600B3FC84 /* ThreadsafeArray.m */; };
 		C040CBC01D9A7C48008FD52E /* SpinLockThreadSafeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C040CBBF1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.m */; };
+		C0499DF61E8E0760006D3A70 /* BarrierThreadSafeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C0499DF51E8E0760006D3A70 /* BarrierThreadSafeDictionary.m */; };
+		C0499DF91E8E11E3006D3A70 /* FirstRWThreadsafeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C0499DF81E8E11E3006D3A70 /* FirstRWThreadsafeDictionary.m */; };
 		C05523D71D7845CB00EACD3D /* PMutexThreadSafeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C05523D61D7845CB00EACD3D /* PMutexThreadSafeDictionary.m */; };
 		C0FF45411D78136A009D4C3B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF45401D78136A009D4C3B /* main.m */; };
 		C0FF45441D78136A009D4C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF45431D78136A009D4C3B /* AppDelegate.m */; };
@@ -25,6 +27,10 @@
 		C02740E01E6AEB3600B3FC84 /* ThreadsafeArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadsafeArray.m; sourceTree = "<group>"; };
 		C040CBBE1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinLockThreadSafeDictionary.h; sourceTree = "<group>"; };
 		C040CBBF1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinLockThreadSafeDictionary.m; sourceTree = "<group>"; };
+		C0499DF41E8E0760006D3A70 /* BarrierThreadSafeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarrierThreadSafeDictionary.h; sourceTree = "<group>"; };
+		C0499DF51E8E0760006D3A70 /* BarrierThreadSafeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarrierThreadSafeDictionary.m; sourceTree = "<group>"; };
+		C0499DF71E8E11E3006D3A70 /* FirstRWThreadsafeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstRWThreadsafeDictionary.h; sourceTree = "<group>"; };
+		C0499DF81E8E11E3006D3A70 /* FirstRWThreadsafeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstRWThreadsafeDictionary.m; sourceTree = "<group>"; };
 		C05523D51D7845CB00EACD3D /* PMutexThreadSafeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMutexThreadSafeDictionary.h; sourceTree = "<group>"; };
 		C05523D61D7845CB00EACD3D /* PMutexThreadSafeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMutexThreadSafeDictionary.m; sourceTree = "<group>"; };
 		C0FF453C1D78136A009D4C3B /* FastestThreadsafeDictionary-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FastestThreadsafeDictionary-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +120,10 @@
 				C040CBBE1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.h */,
 				C040CBBF1D9A7C48008FD52E /* SpinLockThreadSafeDictionary.m */,
 				C0FF45591D7813A4009D4C3B /* TestTBThreadSafeDic.m */,
+				C0499DF41E8E0760006D3A70 /* BarrierThreadSafeDictionary.h */,
+				C0499DF51E8E0760006D3A70 /* BarrierThreadSafeDictionary.m */,
+				C0499DF71E8E11E3006D3A70 /* FirstRWThreadsafeDictionary.h */,
+				C0499DF81E8E11E3006D3A70 /* FirstRWThreadsafeDictionary.m */,
 			);
 			path = FastestThreadsafeDictionary;
 			sourceTree = "<group>";
@@ -194,6 +204,8 @@
 				C0FF455B1D7813A4009D4C3B /* TestTBThreadSafeDic.m in Sources */,
 				C02740E11E6AEB3600B3FC84 /* ThreadsafeArray.m in Sources */,
 				C0FF45441D78136A009D4C3B /* AppDelegate.m in Sources */,
+				C0499DF91E8E11E3006D3A70 /* FirstRWThreadsafeDictionary.m in Sources */,
+				C0499DF61E8E0760006D3A70 /* BarrierThreadSafeDictionary.m in Sources */,
 				C0FF45411D78136A009D4C3B /* main.m in Sources */,
 				C0FF455A1D7813A4009D4C3B /* FastestThreadSafeDictionary.m in Sources */,
 				C05523D71D7845CB00EACD3D /* PMutexThreadSafeDictionary.m in Sources */,

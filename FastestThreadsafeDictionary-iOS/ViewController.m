@@ -11,6 +11,8 @@ void testUnsafeDic();
 void testThreadSafeDic();
 void testPMutexDic();
 void testSpinLockDic();
+void testBarrierDic();
+void testFirstRWDic();
 
 @interface ViewController ()
 
@@ -20,14 +22,13 @@ void testSpinLockDic();
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    const int n = 5;
     
     NSLog(@"START TEST THREADSAFE DICTIONARY WITH OSATIMIC CompareAndSwap");
-    
     double endTime;
     double startTime = CACurrentMediaTime();
     
-    for(int i=0;i<5;++i)
+    for(int i=0;i<n;++i)
     {
         testThreadSafeDic();
     }
@@ -37,7 +38,7 @@ void testSpinLockDic();
     startTime = endTime;
     
     NSLog(@"START TEST THREADSAFE DICTIONARY WITH MUTEX");
-    for(int i=0;i<5;++i)
+    for(int i=0;i<n;++i)
     {
         testPMutexDic();
     }
@@ -46,7 +47,7 @@ void testSpinLockDic();
     startTime = endTime;
     
     NSLog(@"TEST THREADSAFE DIC WITH OSSPINLOCK");
-    for(int i=0;i<5;++i)
+    for(int i=0;i<n;++i)
     {
         testSpinLockDic();
     }
@@ -54,7 +55,16 @@ void testSpinLockDic();
     NSLog(@"Finish: %f", endTime - startTime);
     startTime = endTime;
     
-    NSLog(@"START TEST UNSAFE DICTIONARY. IT MY CRASH, YOU KNOW");
+    NSLog(@"TEST FIRST RW DIC");
+    for(int i=0; i<n; ++i)
+    {
+        testFirstRWDic();
+    }
+    endTime = CACurrentMediaTime();
+    NSLog(@"Finish: %f", endTime - startTime);
+    startTime = endTime;
+    
+    NSLog(@"START TEST UNSAFE DICTIONARY. IT SHOULD CRASH, YOU KNOW......");
     
     testUnsafeDic();
     

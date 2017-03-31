@@ -10,6 +10,8 @@
 #import "FastestThreadSafeDictionary.h"
 #import "PMutexThreadSafeDictionary.h"
 #import "SpinLockThreadSafeDictionary.h"
+#import "BarrierThreadSafeDictionary.h"
+#import "FirstRWThreadsafeDictionary.h"
 
 void readWriteOnMultiThread(NSMutableDictionary* dic)
 {
@@ -79,5 +81,17 @@ void testPMutexDic()
 void testSpinLockDic()
 {
     SpinLockThreadSafeDictionary* dic = [SpinLockThreadSafeDictionary new];
+    readWriteOnMultiThread(dic);
+}
+
+void testBarrierDic()
+{
+    BarrierThreadSafeDictionary* dic = [BarrierThreadSafeDictionary new];
+    readWriteOnMultiThread(dic);
+}
+
+void testFirstRWDic()
+{
+    FirstRWThreadsafeDictionary* dic = [FirstRWThreadsafeDictionary new];
     readWriteOnMultiThread(dic);
 }
