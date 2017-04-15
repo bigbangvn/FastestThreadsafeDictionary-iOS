@@ -11,8 +11,8 @@
 
 @interface FirstRWThreadsafeDictionary()
 {
-    OSSpinLock _spinLockR;
-    OSSpinLock _spinLockW;
+    volatile OSSpinLock _spinLockR;
+    volatile OSSpinLock _spinLockW;
     volatile int32_t _readCount;
 }
 @property(atomic, strong) NSMutableDictionary* dic;
